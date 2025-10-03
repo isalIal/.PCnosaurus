@@ -1,407 +1,282 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>PCnosaurus · Login</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCnosaurus</title>
     <style>
-      :root {
-        --accent: #4169e1;
-        --bg: #f5f8ff;
-        --card: #ffffff;
-        --muted: #6b6b6b;
-        --radius: 14px;
-      }
-      * {
-        box-sizing: border-box;
-      }
       body {
         margin: 0;
-        font-family: Inter, sans-serif;
-        background: var(--bg);
+        font-family: Arial, sans-serif;
+        background: #f6f6f6;
+      }
+
+      /* NAVBAR */
+      .navbar {
         display: flex;
         align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 32px;
-        color: #1a1a1a;
-      }
-      .wrap {
-        max-width: 980px;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 420px;
-        gap: 28px;
-        align-items: center;
-      }
-      .hero {
-        background: #fff;
-        padding: 36px;
-        border-radius: var(--radius);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-      }
-      .hero h1 {
-        margin: 0;
-        font-size: 34px;
-        color: var(--accent);
-      }
-      .hero p {
-        margin: 8px 0;
-        color: var(--muted);
-      }
-      .hero .callout {
-        margin-top: 18px;
-        padding: 14px;
-        background: rgba(0, 206, 209, 0.08);
-        border-radius: 10px;
-        font-weight: 600;
-        color: var(--accent);
-        width: fit-content;
-      }
-      .card {
-        background: var(--card);
-        border-radius: 16px;
-        padding: 28px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-      }
-      .brand {
-        text-align: center;
-        margin-bottom: 14px;
-      }
-      .brand h2 {
-        margin: 0;
-        font-size: 22px;
-        color: var(--accent);
-      }
-      .brand small {
-        color: var(--muted);
-      }
-      .tabs {
-        display: flex;
-        gap: 8px;
-        justify-content: center;
-        margin: 18px 0;
-      }
-      .tabs button {
-        background: transparent;
-        border: 0;
-        padding: 8px 16px;
-        border-radius: 10px;
-        font-weight: 600;
-        cursor: pointer;
-        color: var(--muted);
-      }
-      .tabs button.active {
-        background: var(--accent);
-        color: white;
-      }
-      form {
-        display: grid;
-        gap: 12px;
-      }
-      label {
-        font-size: 13px;
-        color: var(--muted);
-      }
-      input[type="text"],
-      input[type="email"],
-      input[type="password"],
-      input[type="tel"] {
-        width: 100%;
-        padding: 12px;
-        border-radius: 10px;
-        border: 1px solid #eee;
-        background: #fbfbfb;
-        font-size: 15px;
-      }
-      .inline {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
-      .meta {
-        display: flex;
         justify-content: space-between;
-        align-items: center;
-        font-size: 13px;
-        color: var(--muted);
+        padding: 10px 20px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
       }
-      .btn {
+      .navbar .logo {
+        font-size: 22px;
+        font-weight: bold;
+        color: #4169e1;
+      }
+      .navbar .search-bar {
+        flex: 1;
+        margin: 0 20px;
+      }
+      .navbar input {
         width: 100%;
-        padding: 12px;
-        border-radius: 10px;
-        border: 0;
-        font-weight: 700;
-        font-size: 15px;
-        cursor: pointer;
-        background: var(--accent);
-        color: white;
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        outline: none;
       }
-      .socials {
+      .navbar .actions button {
+        margin-left: 10px;
+        padding: 6px 14px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .login {
+        background: #fff;
+        border: 1px solid #4169e1;
+        color: #4169e1;
+      }
+      .signup {
+        background: #4169e1;
+        color: #fff;
+      }
+
+      /* SLIDER */
+      .slider {
+        position: relative;
+        width: 100%;
+        max-height: 300px;
+        overflow: hidden;
+      }
+      .slides {
+        display: flex;
+        transition: transform 1s ease-in-out;
+      }
+      .slides img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      /* SECTION */
+      .section {
+        background: #fff;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .section h2 {
+        margin-bottom: 15px;
+      }
+
+      /* KATEGORI */
+      .categories {
+        display: flex;
+        gap: 120px;
+        flex-wrap: wrap;
+      }
+      .category {
+        width: 100px;
+        text-align: center;
+      }
+      .category img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* PRODUK */
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+      }
+      .product {
+        background: #fff;
+        padding: 10px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        height: 280px;
+      }
+      .product img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .product p {
+        margin: 5px 0;
+        font-size: 14px;
+        line-height: 1.2em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .product .price {
+        font-weight: bold;
+        color: #ff0000;
+        margin-top: auto;
+      }
+
+      /* TOPUP */
+      .topup {
         display: flex;
         gap: 10px;
-        margin-top: 6px;
+        flex-wrap: wrap;
       }
-      .socials button {
-        flex: 1;
-        padding: 10px;
-        border-radius: 8px;
-        border: 1px solid #eee;
-        background: white;
-        cursor: pointer;
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        font-weight: 600;
+      .topup input,
+      .topup select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
       }
-      .socials img {
-        width: 18px;
-        height: 18px;
-      }
-      .small {
-        text-align: center;
-        font-size: 13px;
-        color: var(--muted);
-        margin-top: 12px;
-      }
-      .foot {
-        text-align: center;
-        font-size: 12px;
-        color: #9b9b9b;
-        margin-top: 12px;
-      }
-      @media (max-width: 880px) {
-        .wrap {
-          grid-template-columns: 1fr;
-        }
-        .hero {
-          order: 2;
-        }
-        .card {
-          order: 1;
-        }
-      }
-      #main-page {
-        display: none;
-        padding: 20px;
-      }
-      #main-page h1 {
-        color: var(--accent);
-      }
-      .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 16px;
-        margin-top: 20px;
-      }
-      .feature {
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        padding: 16px;
-        text-align: center;
-        font-size: 14px;
-        font-weight: 600;
+      .topup button {
+        background: #4169e1;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
         cursor: pointer;
       }
     </style>
   </head>
   <body>
-    <div id="login-page">
-      <div class="wrap">
-        <div class="hero">
-          <h1>PCnosaurus</h1>
-          <p>
-            Buka kesempatan belanja komponen PC terbaik — toko PC lokal dengan
-            ragam part, rakitan, dan aksesori.
-          </p>
-          <div class="callout">Diskon eksklusif & voucher saat daftar</div>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="logo">PCnosaurus</div>
+      <div class="search-bar">
+        <input type="text" placeholder="Cari produk, kategori, atau toko" />
+      </div>
+      <div class="actions">
+        <button class="login" onclick="window.location.href='login.html'">
+          Masuk
+        </button>
+        <button class="signup" onclick="window.location.href='login.html'">
+          Daftar
+        </button>
+      </div>
+    </div>
+
+    <!-- SLIDER -->
+    <div class="slider">
+      <div class="slides" id="slides">
+        <img src="slidesatu.jpg" alt="Banner 1" />
+        <img src="slidedua.jpg" alt="Banner 2" />
+        <img src="slidetiga.jpg" alt="Banner 3" />
+        <img src="slideempat.jpg" alt="Banner 4" />
+      </div>
+    </div>
+
+    <!-- KATEGORI -->
+    <div class="section">
+      <h2>Kategori Pilihan</h2>
+      <div class="categories">
+        <div class="category">
+          <img src="Pcsatu.webp" />
+          <p>Casing</p>
         </div>
-        <div class="card">
-          <div class="brand">
-            <h2>PCnosaurus</h2>
-            <small>Masuk ke akunmu atau daftar jika baru</small>
-          </div>
-          <div class="tabs">
-            <button id="tab-login" class="active" onclick="showTab('login')">
-              Masuk
-            </button>
-            <button id="tab-register" onclick="showTab('register')">
-              Daftar
-            </button>
-          </div>
-          <!-- LOGIN -->
-          <div id="login" class="panel">
-            <form onsubmit="event.preventDefault();goToMain()">
-              <div>
-                <label>Email atau No. HP</label>
-                <input type="text" required />
-              </div>
-              <div>
-                <label>Kata Sandi</label>
-                <div class="inline">
-                  <input
-                    id="login-pass"
-                    type="password"
-                    style="flex: 1"
-                    required
-                  />
-                  <button
-                    type="button"
-                    onclick="togglePassword('login-pass')"
-                    style="
-                      border: 0;
-                      background: transparent;
-                      cursor: pointer;
-                      font-size: 13px;
-                    "
-                  >
-                    Tampilkan
-                  </button>
-                </div>
-              </div>
-              <div class="meta">
-                <label class="inline"
-                  ><input
-                    type="checkbox"
-                    id="rememberMe"
-                    onclick="rememberMe()"
-                  />
-                  Ingat saya</label
-                >
-                <a href="#" onclick="forgotPassword()">Lupa kata sandi?</a>
-              </div>
-              <button class="btn">Masuk</button>
-              <div class="small">atau masuk dengan</div>
-              <div class="socials">
-                <button type="button" onclick="loginGoogle()">
-                  <img
-                    src="https://www.svgrepo.com/show/355037/google.svg"
-                  />Google
-                </button>
-                <button type="button" onclick="loginFacebook()">
-                  <img
-                    src="https://www.svgrepo.com/show/475647/facebook-color.svg"
-                  />Facebook
-                </button>
-              </div>
-              <div class="small">
-                Belum punya akun?
-                <a href="#" onclick="showTab('register')">Daftar sekarang</a>
-              </div>
-            </form>
-          </div>
-          <!-- REGISTER -->
-          <div id="register" class="panel" style="display: none">
-            <form onsubmit="event.preventDefault();goToMain()">
-              <div>
-                <label>Nama Lengkap</label><input type="text" required />
-              </div>
-              <div><label>Email</label><input type="email" required /></div>
-              <div><label>No. HP</label><input type="tel" required /></div>
-              <div>
-                <label>Kata Sandi</label>
-                <div class="inline">
-                  <input
-                    id="reg-pass"
-                    type="password"
-                    style="flex: 1"
-                    required
-                  />
-                  <button
-                    type="button"
-                    onclick="togglePassword('reg-pass')"
-                    style="
-                      border: 0;
-                      background: transparent;
-                      cursor: pointer;
-                      font-size: 13px;
-                    "
-                  >
-                    Tampilkan
-                  </button>
-                </div>
-              </div>
-              <button class="btn">Daftar</button>
-              <div class="small">atau daftar dengan</div>
-              <div class="socials">
-                <button type="button" onclick="loginGoogle()">
-                  <img
-                    src="https://www.svgrepo.com/show/355037/google.svg"
-                  />Google
-                </button>
-                <button type="button" onclick="loginFacebook()">
-                  <img
-                    src="https://www.svgrepo.com/show/475647/facebook-color.svg"
-                  />Facebook
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="foot">PCnosaurus • Toko Komponen & Rakitan</div>
+        <div class="category">
+          <img src="Pcdua.jpg" />
+          <p>Processor</p>
+        </div>
+        <div class="category">
+          <img src="Pctiga.webp" />
+          <p>Perkabelan</p>
+        </div>
+        <div class="category">
+          <img src="Pcempat.jpg" />
+          <p>Ram</p>
+        </div>
+        <div class="category">
+          <img src="pclima.jpg" />
+          <p>Meja Gaming</p>
+        </div>
+        <div class="category">
+          <img src="pcenam.jpg" />
+          <p>Kursi Gaming</p>
         </div>
       </div>
     </div>
 
-    <!-- MAIN PAGE -->
-    <div id="main-page">
-      <h1>Selamat Datang di PCnosaurus!</h1>
-      <p>masih kosong ya gaes, stay tune terus:</p>
-      <!-- Bagian fitur dihilangkan sementara -->
-      <!--
-  <div class="features">
-    <div class="feature">Produk</div>
-    <div class="feature">Kategori</div>
-    <div class="feature">Promo & Voucher</div>
-    <div class="feature">Keranjang</div>
-    <div class="feature">Pesanan Saya</div>
-    <div class="feature">Notifikasi</div>
-    <div class="feature">Akun Saya</div>
-  </div>
-  -->
+    <!-- PRODUK -->
+    <div class="section">
+      <h2>Produk Unggulan</h2>
+      <div class="products">
+        <div class="product">
+          <img src="produksatu.jpg" />
+          <p>ROG X EVANGELION</p>
+          <p class="price">Rp 20.000.000</p>
+        </div>
+        <div class="product">
+          <img src="produkdua.jpg" />
+          <p>Premium AMD</p>
+          <p class="price">Rp 13.000.000</p>
+        </div>
+        <div class="product">
+          <img src="produktiga.jpg" />
+          <p>
+            ASUS ROG NUC MINI PC GAMING 2025 ULTRA 9 275HX 32GB RAM 2TB SSD RTX
+            5080
+          </p>
+          <p class="price">Rp 71.000.000</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPUP -->
+    <div class="section">
+      <h2>Top Up Sekarang</h2>
+      <div class="topup">
+        <select>
+          <option>Bank</option>
+          <option>BCA</option>
+          <option>BRI</option>
+          <option>SEABANK</option>
+          <option>MANDIRI</option>
+          <option>JAGO</option>
+        </select>
+        <input type="text" placeholder="No Rekening" />
+        <select>
+          <option value="500000">Rp 500.000</option>
+          <option value="1000000">Rp 1.000.000</option>
+          <option value="2000000">Rp 2.000.000</option>
+          <option value="5000000">Rp 5.000.000</option>
+        </select>
+        <button>Top Up</button>
+      </div>
     </div>
 
     <script>
-      function showTab(name) {
-        document
-          .getElementById("tab-login")
-          .classList.toggle("active", name === "login");
-        document
-          .getElementById("tab-register")
-          .classList.toggle("active", name === "register");
-        document.getElementById("login").style.display =
-          name === "login" ? "block" : "none";
-        document.getElementById("register").style.display =
-          name === "register" ? "block" : "none";
+      // SLIDER AUTO
+      let index = 0;
+      const slides = document.getElementById("slides");
+      const total = slides.children.length;
+
+      function showSlide() {
+        index = (index + 1) % total;
+        slides.style.transform = `translateX(-${index * 100}%)`;
       }
-      function togglePassword(id) {
-        const el = document.getElementById(id);
-        el.type = el.type === "password" ? "text" : "password";
-      }
-      function rememberMe() {
-        alert("Inget-inget ya bos.");
-      }
-      function forgotPassword() {
-        alert("Sabar bos masih proses.");
-      }
-      function goToMain() {
-        document.getElementById("login-page").style.display = "none";
-        document.getElementById("main-page").style.display = "block";
-      }
-      function loginGoogle() {
-        alert("Mantap slur dah login ye.");
-        goToMain();
-      }
-      function loginFacebook() {
-        alert("Gweh tebak lu alumni facebook 2001.");
-        goToMain();
-      }
+      setInterval(showSlide, 3000);
     </script>
   </body>
 </html>
